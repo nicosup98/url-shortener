@@ -3,9 +3,8 @@
 import { h } from "preact"
 import { useState } from "preact/hooks"
 import { tw } from "@twind"
-import { BASE_URL } from "../utils/constant.ts"
 
-export default function Shortener(){
+export default function Shortener({BASE_URL}: {BASE_URL: string}){
     const [url,setUrl]=useState("")
     const [procesedUrl,setProcesedUrl]=useState("")
     const [ loading,setLoading ] = useState(false)
