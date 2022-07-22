@@ -4,14 +4,14 @@ import { h } from "preact"
 import { useState } from "preact/hooks"
 import { tw } from "@twind"
 
-export default function Shortener({BASE_URL}: {BASE_URL: string}){
+export default function Shortener(){
     const [url,setUrl]=useState("")
     const [procesedUrl,setProcesedUrl]=useState("")
     const [ loading,setLoading ] = useState(false)
     async function handleClick(){
         setLoading(true)
         console.log({url})
-        const resp = await fetch(`${BASE_URL}/api/short/url`,{body:url,method:"POST"})
+        const resp = await fetch(`/api/short/url`,{body:url,method:"POST"})
         setProcesedUrl(await resp.text())
         setLoading(false)
         
